@@ -27,7 +27,6 @@ class UserRecyclerAdapter(private val users: MutableList<User>):RecyclerView.Ada
         val user = users[position]
         holder.name.text = user.name
         holder.email.text = user.email
-
     }
 
     @SuppressLint("MissingInflatedId")
@@ -78,10 +77,6 @@ class UserRecyclerAdapter(private val users: MutableList<User>):RecyclerView.Ada
             }
 
         }
-
-
-
-
 
     }
 

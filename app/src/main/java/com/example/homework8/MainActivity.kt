@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         setUpRecycler()
         binding.btnAdd.setOnClickListener(){addInfo()}
 
-
     }
         private fun setUpRecycler(){
         binding.recycleUsers.layoutManager = LinearLayoutManager(this)
@@ -30,10 +29,8 @@ class MainActivity : AppCompatActivity() {
     private fun addInfo() {
         val inflater = LayoutInflater.from(this)
         val v = inflater.inflate(R.layout.add_user,null)
-        /**set view*/
         val userName = v.findViewById<EditText>(R.id.userName)
         val email = v.findViewById<EditText>(R.id.email)
-
         val addDialog = AlertDialog.Builder(this)
 
         addDialog.setView(v)
@@ -43,14 +40,13 @@ class MainActivity : AppCompatActivity() {
             val email = email.text.toString()
             users.add(User("Name: $name","Email : $email"))
             //UserRecyclerAdapter.notifyDataSetChanged()
-            Toast.makeText(this,"Adding User Information Success",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Use Added Succesfully",Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
         addDialog.setNegativeButton("Cancel"){
                 dialog,_->
             dialog.dismiss()
             Toast.makeText(this,"Cancel",Toast.LENGTH_SHORT).show()
-
         }
         addDialog.create()
         addDialog.show()
