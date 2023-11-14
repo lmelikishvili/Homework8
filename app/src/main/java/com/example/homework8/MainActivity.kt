@@ -1,7 +1,6 @@
 package com.example.homework8
 
 import android.app.AlertDialog
-import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,8 +28,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addInfo() {
-        val inflter = LayoutInflater.from(this)
-        val v = inflter.inflate(R.layout.add_user,null)
+        val inflater = LayoutInflater.from(this)
+        val v = inflater.inflate(R.layout.add_user,null)
         /**set view*/
         val userName = v.findViewById<EditText>(R.id.userName)
         val email = v.findViewById<EditText>(R.id.email)
