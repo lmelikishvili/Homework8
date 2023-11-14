@@ -19,11 +19,16 @@ class UserRecyclerAdapter(private val users: MutableList<User>):RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: UserVh, position: Int) {
+        val user = users[position]
+        holder.name.text = user.name
+        holder.email.text = user.email
 
     }
 
 
     inner class UserVh(private val binding: UserItemBinding):RecyclerView.ViewHolder(binding.root){
+        val name = binding.tvNameSurname
+        val email = binding.tvEmail
 
     }
 
