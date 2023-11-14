@@ -34,10 +34,10 @@ class UserRecyclerAdapter(private val users: MutableList<User>):RecyclerView.Ada
     inner class UserVh(private val binding: UserItemBinding):RecyclerView.ViewHolder(binding.root){
         val name = binding.tvNameSurname
         val email = binding.tvEmail
-        val edit = binding.btnEdit
+        private val edit = binding.btnEdit
+        val delete = binding.btnDelete
 
         init {
-
             edit.setOnClickListener(){
                 val v = LayoutInflater.from(it.context).inflate(R.layout.add_user,null)
                 val name = v.findViewById<EditText>(R.id.userName)
@@ -58,6 +58,25 @@ class UserRecyclerAdapter(private val users: MutableList<User>):RecyclerView.Ada
                     .create()
                     .show()
             }
+
+            delete.setOnClickListener(){
+                AlertDialog.Builder(it.context)
+                    .setTitle("Delete User?")
+                    .setIcon(R.drawable.delete)
+                    .setMessage("User Will Deleted!!")
+                    .setPositiveButton("Yes"){
+                        _,_->
+                        users.removeAt(adapterPosition)
+                        notifyDataSetChanged()
+                        Toast.makeText(it.context,"User Deleted!!", Toast.LENGTH_LONG).show()
+                    }
+                    .setNegativeButton("No"){
+                        _,_->
+                    }
+                    .create()
+                    .show()
+            }
+
         }
 
 
